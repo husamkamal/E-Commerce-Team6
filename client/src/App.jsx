@@ -1,5 +1,10 @@
 import React from 'react';
+import Catalog from './pages/Catalog/Catalog';
 
 export default function App() {
-  return <div>App</div>;
+  return (
+    <div>
+      <Catalog />
+    </div>
+  );
 }
