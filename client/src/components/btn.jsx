@@ -17,8 +17,7 @@ function Btn({ Name, click }) {
   };
 
   return (
-    // eslint-disable-next-line react/button-has-type
-    <button onClick={click} style={style}>
+    <button type="button" onClick={click} style={style}>
       {Name}
     </button>
   );

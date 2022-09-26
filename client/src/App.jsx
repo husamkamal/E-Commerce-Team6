@@ -1,9 +1,9 @@
-import Catalog from './pages/Catalog/Catalog';
+import Product from './pages/Product/Product';
 
 export default function App() {
   return (
     <div>
-      <Catalog />
+      <Product />
     </div>
   );
 }
