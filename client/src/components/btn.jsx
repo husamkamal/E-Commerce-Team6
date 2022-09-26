@@ -12,12 +12,14 @@ const Btn = ({ Name, click }) => {
     lineHeight: '32px',
     letterSpacing: '0em',
     textAlign: 'center',
-    userSelect: 'none'
+    userSelect: 'none',
   };
 
-
-
-  return <button onClick={click} style={style}>{Name}</button>;
+  return (
+    <button onClick={click} style={style}>
+      {Name}
+    </button>
+  );
 };
 
 export default Btn;

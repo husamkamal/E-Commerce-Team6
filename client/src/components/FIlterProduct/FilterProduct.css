@@ -6,8 +6,8 @@
 .filter-product-section{
     display: flex;
     flex-direction: column;
-    padding-left: 6rem;
-    margin-bottom: 1rem;
+    padding-left: 2rem;
+    margin-top: 1rem;
     width: 100%;
 }
 .filter-select{
