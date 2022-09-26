@@ -1,21 +1,21 @@
 const Joi = require('joi');
 
-const signinValidation = async () => {
+const signinValidation = async (body) => {
   const schema = Joi.object({
-    firesName: Joi.string().alphanum().min(3).max(30).required(),
-    lastName: Joi.string().alphanum().min(3).max(30).required(),
-    email: Joi.string().email({
-      minDomainSegments: 2,
-      tlds: { allow: ['com', 'net'] },
-    }),
+    name: Joi.string().alphanum().min(3).max(30).required(),
+    email: Joi.string()
+      .email({
+        minDomainSegments: 2,
+        tlds: { allow: ['com', 'net'] },
+      })
+      .required(),
     // eslint-disable-next-line prefer-regex-literals
-    password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
+    password: Joi.string()
+      .pattern(/^[a-zA-Z0-9]{3,30}$/)
+      .required(),
   });
   try {
-    const value = await schema.validateAsync({
-      username: 'abc',
-      birth_year: 1994,
-    });
+    const value = await schema.validateAsync(body);
     return value;
   } catch (err) {
     return err;
