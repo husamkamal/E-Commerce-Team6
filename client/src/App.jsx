@@ -1,4 +1,8 @@
+
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import Catalog from './pages/Catalog/Catalog';
+
 
 const data = [
   {
@@ -40,7 +44,9 @@ const data = [
 export default function App() {
   return (
     <div>
+      <Header />
       <Catalog data={data} />
+      <Footer />
     </div>
   );
 }
