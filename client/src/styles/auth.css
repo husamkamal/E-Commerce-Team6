@@ -1,0 +1,36 @@
+.container{
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.container .authForm {
+    border: 1px solid black;
+    padding: 40px;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.container .authForm h1 {
+    font-family: 'Helvetica Neue LT Std';
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 48px;
+    letter-spacing: 0.04em;
+    text-align: left;
+}
+
+.container .authForm input{
+    display: block;
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 1.2rem;
+}
+
+.container .authForm input:focus{
+    outline: none;
+    background-color: transparent;
+}
