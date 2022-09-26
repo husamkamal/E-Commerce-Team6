@@ -1,8 +1,6 @@
-
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Catalog from './pages/Catalog/Catalog';
-
 
 const data = [
   {
