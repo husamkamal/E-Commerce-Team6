@@ -1,6 +1,5 @@
-import React from 'react';
-import Products from './components/products/products';
-
+import Product from './pages/Product/Product';
+import Catalog from './pages/Catalog/Catalog'
 const data = [
   {
     id: 2,
@@ -41,7 +40,7 @@ const data = [
 export default function App() {
   return (
     <div>
-      <Products data={data} />
+      <Catalog />
     </div>
   );
 }
