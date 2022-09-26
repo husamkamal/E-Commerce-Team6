@@ -9,12 +9,14 @@ a {
   width: 80%;
 }
 header {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 100;
-  background-color: transparent;
+  background-color: #FFF;
+  box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
+  margin-bottom: 2rem;
 }
 nav {
   display: flex;
