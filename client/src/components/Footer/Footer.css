@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap');
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 90px;
+  padding-top: 90px;
+}
+.footerbar {
+  font-size: 18px;
+  color: #121212;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+}
+.title-footerbar {
+  font-size: 18px;
+  font-weight: 450;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 15px;
+}
+.footer-item {
+  margin: 5px 0;
+}
+.footer-link {
+  position: relative;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+  color: #121212;
+  transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  -moz-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  -ms-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  -o-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.footer-link::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #121212;
+  transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  -moz-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  -ms-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  -o-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.footer-link:hover.footer-link::before {
+  width: 100%;
+  transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  -moz-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  -ms-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  -o-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.follow-box {
+  display: flex;
+  column-gap: 7px;
+  text-align: center;
+  margin: 5px 0;
+}
+.bx {
+  font-size: 20px;
+}
