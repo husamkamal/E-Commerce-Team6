@@ -4,13 +4,13 @@ BEGIN;
         ID SERIAL PRIMARY KEY,
         Name VARCHAR(50) NOT NULL,
         Email VARCHAR(100) NOT NULL UNIQUE,
-        HshedPassword TEXT NOT NULL,
+        HshedPassword TEXT NOT NULL
     );
 
     CREATE TABLE categories (
         ID SERIAL PRIMARY KEY,
-        Name VARCHAR(50) NOT NULL,
-    )
+        Name VARCHAR(50) NOT NULL
+    );
 
     CREATE TABLE products (
         ID SERIAL PRIMARY KEY,
@@ -18,15 +18,16 @@ BEGIN;
         Description TEXT,
         Image TEXT NOT NULL,
         CategoryID INTEGER NOT NULL,
+        price INTEGER NOT NULL ,
         FOREIGN KEY (CategoryID) REFERENCES categories(ID) 
-    )
+    );
 
-    CREATE TABLE products (
+    CREATE TABLE cart (
         ID SERIAL PRIMARY KEY,
         Quantity INTEGER NOT NULL DEFAULT 1,
         ProductID INTEGER NOT NULL,
         UserID INTEGER NOT NULL,
         FOREIGN KEY (ProductID) REFERENCES products(ID),
         FOREIGN KEY (UserID) REFERENCES users(ID) 
-    )
-END;
+    );
+Commit;
