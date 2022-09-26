@@ -1,4 +1,5 @@
-const Btn = ({ Name, click }) => {
+// eslint-disable-next-line react/prop-types
+function Btn({ Name, click }) {
   const style = {
     backgroundColor: 'black',
     color: 'white',
@@ -16,10 +17,10 @@ const Btn = ({ Name, click }) => {
   };
 
   return (
-    <button onClick={click} style={style}>
+    <button type="button" onClick={click} style={style}>
       {Name}
     </button>
   );
-};
+}
 
 export default Btn;

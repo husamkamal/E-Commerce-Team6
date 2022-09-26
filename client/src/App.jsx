@@ -1,4 +1,3 @@
-import React from 'react';
 import Product from './pages/Product/Product';
 
 export default function App() {
