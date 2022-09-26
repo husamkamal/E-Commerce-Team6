@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Product from './product';
+import Card from './card';
 
 function Products(props) {
   const { data } = props;
@@ -9,7 +9,7 @@ function Products(props) {
     <section className="products-container">
       <ul className="products-list">
         {data.map((ele) => (
-          <Product key={ele.id} info={ele} />
+          <Card key={ele.id} info={ele} />
         ))}
       </ul>
       <div className="page-index">test</div>

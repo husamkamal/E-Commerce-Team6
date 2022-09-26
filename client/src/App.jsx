@@ -1,5 +1,5 @@
-import Product from './pages/Product/Product';
-import Catalog from './pages/Catalog/Catalog'
+import Catalog from './pages/Catalog/Catalog';
+
 const data = [
   {
     id: 2,
@@ -40,7 +40,7 @@ const data = [
 export default function App() {
   return (
     <div>
-      <Catalog />
+      <Catalog data={data} />
     </div>
   );
 }

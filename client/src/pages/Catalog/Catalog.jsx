@@ -1,9 +1,11 @@
 import Filter from '../../components/FIlter/Filter';
+import Products from '../../components/products/products';
 
-function Catalog() {
+function Catalog({ data }) {
   return (
     <div>
       <Filter />
+      <Products data={data} />
     </div>
   );
 }

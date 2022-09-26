@@ -1,8 +1,8 @@
 /* eslint-disable react/button-has-type */
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-function Product(props) {
+function Card(props) {
   const [visible, setVisible] = useState(false);
 
   const { info } = props;
@@ -42,7 +42,7 @@ function Product(props) {
   );
 }
 
-Product.propTypes = {
+Card.propTypes = {
   info: PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
@@ -51,4 +51,4 @@ Product.propTypes = {
   }).isRequired,
 };
 
-export default Product;
+export default Card;
