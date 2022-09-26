@@ -1,0 +1,275 @@
+commit 7d076f8dea2bb39a7913216f6d67c517327df9cb
+Author: Mai Mohammed <maymohammedabuabed@gmail.com>
+Date:   Mon Sep 26 09:30:51 2022 +0300
+
+    products section handling
+
+diff --git a/client/.eslintrc.js b/client/.eslintrc.js
+index 982dd9b..38cc570 100644
+--- a/client/.eslintrc.js
++++ b/client/.eslintrc.js
+@@ -12,5 +12,6 @@ module.exports = {
+   plugins: ['react', 'prettier'],
+   rules: {
+     'prettier/prettier': 'error',
++    // "react/destructuring-assignment": ["<enabled>", 'never']
+   },
+ };
+diff --git a/client/package-lock.json b/client/package-lock.json
+index 90045d3..eec5882 100644
+--- a/client/package-lock.json
++++ b/client/package-lock.json
+@@ -11,6 +11,7 @@
+         "@testing-library/jest-dom": "^5.16.5",
+         "@testing-library/react": "^13.4.0",
+         "@testing-library/user-event": "^13.5.0",
++        "prop-types": "^15.8.1",
+         "react": "^18.2.0",
+         "react-dom": "^18.2.0",
+         "react-scripts": "5.0.1",
+diff --git a/client/package.json b/client/package.json
+index ae0d35a..d2ee479 100644
+--- a/client/package.json
++++ b/client/package.json
+@@ -6,6 +6,7 @@
+     "@testing-library/jest-dom": "^5.16.5",
+     "@testing-library/react": "^13.4.0",
+     "@testing-library/user-event": "^13.5.0",
++    "prop-types": "^15.8.1",
+     "react": "^18.2.0",
+     "react-dom": "^18.2.0",
+     "react-scripts": "5.0.1",
+diff --git a/client/public/index.html b/client/public/index.html
+index aa069f2..7f8d074 100644
+--- a/client/public/index.html
++++ b/client/public/index.html
+@@ -24,6 +24,17 @@
+       work correctly both with client-side routing and a non-root public URL.
+       Learn how to configure a non-root public URL by running `npm run build`.
+     -->
++    <link
++    rel="stylesheet"
++    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
++    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
++    crossorigin="anonymous"
++    referrerpolicy="no-referrer"
++  />
++  <link
++    rel="stylesheet"
++    href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css"
++  />
+     <title>React App</title>
+   </head>
+   <body>
+diff --git a/client/src/App.jsx b/client/src/App.jsx
+index 710060d..4ea0fc9 100644
+--- a/client/src/App.jsx
++++ b/client/src/App.jsx
+@@ -1,5 +1,47 @@
+ import React from 'react';
++import Products from './components/products/products';
+ 
++const data = [
++  {
++    id: 2,
++    title: 'Test Name',
++    image:
++      'https://images.unsplash.com/photo-1511556820780-d912e42b4980?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
++    price: 100,
++  },
++  {
++    id: 66,
++    title: 'Test Name',
++    image:
++      'https://images.unsplash.com/photo-1511556820780-d912e42b4980?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
++    price: 100,
++  },
++  {
++    id: 5,
++    title: 'Test Name',
++    image:
++      'https://images.unsplash.com/photo-1545147986-a9d6f2ab03b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80',
++    price: 100,
++  },
++  {
++    id: 61,
++    title: 'Test Name',
++    image:
++      'https://images.unsplash.com/photo-1545147986-a9d6f2ab03b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80',
++    price: 100,
++  },
++  {
++    id: 34,
++    title: 'Test Name',
++    image:
++      'https://images.unsplash.com/photo-1545147986-a9d6f2ab03b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80',
++    price: 100,
++  },
++];
+ export default function App() {
+-  return <div>App</div>;
++  return (
++    <div>
++      <Products data={data} />
++    </div>
++  );
+ }
+diff --git a/client/src/components/products/product.jsx b/client/src/components/products/product.jsx
+new file mode 100644
+index 0000000..4b670a3
+--- /dev/null
++++ b/client/src/components/products/product.jsx
+@@ -0,0 +1,26 @@
++/* eslint-disable react/button-has-type */
++import React from 'react';
++import PropTypes from 'prop-types';
++
++function Product(props) {
++  const { info } = props;
++  return (
++    <li style={{ backgroundImage: `url(${info.image})` }} className="product">
++      <div className="price-mark">
++        <span className="price">${info.price}</span>
++      </div>
++      {/* <img className="product-image" src={info.image} alt="info.name" /> */}
++
++      <button className="add-btn">ADD TO BAG</button>
++    </li>
++  );
++}
++Product.propTypes = {
++  info: PropTypes.shape({
++    id: PropTypes.number,
++    name: PropTypes.string,
++    image: PropTypes.string,
++    price: PropTypes.number,
++  }).isRequired,
++};
++export default Product;
+diff --git a/client/src/components/products/products.jsx b/client/src/components/products/products.jsx
+new file mode 100644
+index 0000000..3b1d1e8
+--- /dev/null
++++ b/client/src/components/products/products.jsx
+@@ -0,0 +1,22 @@
++import React from 'react';
++import PropTypes from 'prop-types';
++import Product from './product';
++
++function Products(props) {
++  const { data } = props;
++  return (
++    <section className="products-container">
++      <ul className="products-list">
++        {data.map((ele) => (
++          <Product key={ele.id} info={ele} />
++        ))}
++      </ul>
++      <div className="page-index">test</div>
++    </section>
++  );
++}
++
++Products.propTypes = {
++  data: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
++};
++export default Products;
+diff --git a/client/src/index.css b/client/src/index.css
+index ec2585e..2bedf92 100644
+--- a/client/src/index.css
++++ b/client/src/index.css
+@@ -1,13 +1,72 @@
++@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&display=swap');
++
++li {
++  list-style-type: none;
++}
++
+ body {
+-  margin: 0;
+-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+-    sans-serif;
+-  -webkit-font-smoothing: antialiased;
+-  -moz-osx-font-smoothing: grayscale;
++  font-family: 'Poppins', sans-serif;
++}
++.products-container{
++  margin: 0 auto;
++  width:100%;
++}
++.products-list {
++  width: 90%;
++  margin: 0 auto;
++  min-height: 1000px;
++  display: flex;
++  justify-content: space-between;
++  flex-wrap: wrap;
++  gap: 5%;
++}
++
++.product {
++  width: 240px;
++  height: 350px;
++  position: relative;
++  display: flex;
++  flex-direction: column;
++  /* align-items: center; */
++}
++
++/* .product-image {
++  width:100%;
++  height :auto;
++  object-fit: cover;
++} 
++ */
++
++.product {
++  background-position: center;
++  background-size: cover;
++}
++.price-mark{
++  position: absolute;
++  /* top : 10px; */
++  width:5.6rem;
++  padding: 0.6rem  0px  0.6rem  0.7rem ;
++  background-color:#D1094B;
++  border-radius: 5px;
++  display: flex;
++  justify-content:space-between;
++  align-items: center;
++  clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 0 100%, 0% 50%, 0 0);
+ }
+ 
+-code {
+-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+-    monospace;
++.price-mark .price{
++  padding-left: 0.5rem;
++  color: #FFF;
++  border-left: 3.4px solid #FFF;
+ }
++
++.add-btn{
++  position: absolute;
++  border: none;
++  background-color :transparent;
++  color : #FFF;
++  font-size :1rem ;
++  bottom: 50px;
++  left: 60px;
++  background-color: black;
++}
+\ No newline at end of file
+diff --git a/package-lock.json b/package-lock.json
+new file mode 100644
+index 0000000..a16f4f2
+--- /dev/null
++++ b/package-lock.json
+@@ -0,0 +1,6 @@
++{
++  "name": "E-Commerce-Team6",
++  "lockfileVersion": 2,
++  "requires": true,
++  "packages": {}
++}

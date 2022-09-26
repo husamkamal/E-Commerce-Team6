@@ -12,6 +12,5 @@ module.exports = {
   plugins: ['react', 'prettier'],
   rules: {
     'prettier/prettier': 'error',
-    // "react/destructuring-assignment": ["<enabled>", 'never']
   },
 };
