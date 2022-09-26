@@ -21,6 +21,9 @@ function Card(props) {
         className="product-content"
         style={{
           backdropFilter: visible ? 'blur(1px) grayscale(70%)' : 'none',
+          backgroundImage: visible
+            ? 'linear-gradient(to top, #1d1d1dc3, transparent)'
+            : 'none',
         }}
       />
       <div

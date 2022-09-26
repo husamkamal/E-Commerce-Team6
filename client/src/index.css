@@ -17,8 +17,11 @@ body {
 
 
 .products-container {
+  display:flex ;
+  flex-direction: column;
   margin: 0 auto;
   width: 100%;
+  margin : 3rem ;
 }
 
 .products-list {
@@ -28,7 +31,7 @@ body {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 5%;
+  gap: 2%;
 }
 
 .product {
@@ -40,6 +43,7 @@ body {
   background-position: center;
   background-size: cover;
   position: relative;
+  /* margin-bottom: 1rem; */
 }
 
 .product-content{
@@ -48,7 +52,7 @@ body {
   left : 0;
   right:0;
   bottom: 0;
-  transition: all 0.3s;
+  transition: all 0.2s;
 }
 
 /* .product-image {
