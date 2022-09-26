@@ -1,4 +1,3 @@
-import React from 'react';
 import './CategoryFIlter.css';
 
 export default function CategoryFilter() {

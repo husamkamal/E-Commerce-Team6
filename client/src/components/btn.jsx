@@ -1,4 +1,5 @@
-const Btn = ({ Name, click }) => {
+// eslint-disable-next-line react/prop-types
+function Btn({ Name, click }) {
   const style = {
     backgroundColor: 'black',
     color: 'white',
@@ -12,12 +13,15 @@ const Btn = ({ Name, click }) => {
     lineHeight: '32px',
     letterSpacing: '0em',
     textAlign: 'center',
-    userSelect: 'none'
+    userSelect: 'none',
   };
 
-
-
-  return <button onClick={click} style={style}>{Name}</button>;
-};
+  return (
+    // eslint-disable-next-line react/button-has-type
+    <button onClick={click} style={style}>
+      {Name}
+    </button>
+  );
+}
 
 export default Btn;

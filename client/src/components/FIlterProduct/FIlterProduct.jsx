@@ -1,4 +1,3 @@
-import React from 'react';
 import './FilterProduct.css';
 
 function FIlterProduct() {

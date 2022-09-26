@@ -1,12 +1,12 @@
+import { useState } from 'react';
 import Btn from './btn';
 import '../styles/auth.css';
-import { useState } from 'react';
 
-const Register = () => {
-  const regxValidation = {
-    email: '^w+@[a-zA-Z_]+?.[a-zA-Z]{2,3}$',
-    pasword: /[^a-zA-Z0-9 ]/,
-  };
+function Register() {
+  // const regxValidation = {
+  //   email: '^w+@[a-zA-Z_]+?.[a-zA-Z]{2,3}$',
+  //   pasword: /[^a-zA-Z0-9 ]/,
+  // };
   const [inputs, setInput] = useState({
     name: '',
     email: '',
@@ -14,11 +14,11 @@ const Register = () => {
     confirmPassword: '',
   });
   const inputHandler = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
+    const { name } = e.target;
+    const { value } = e.target;
     setInput({ ...inputs, [name]: value });
   };
-  const clicked = (_) => {};
+
   return (
     <section className="container">
       <div className="authForm">
@@ -52,12 +52,12 @@ const Register = () => {
           placeholder="Confirm Password"
         />
 
-        <Btn click={clicked} Name="REGISTER" />
+        <Btn click={null} Name="REGISTER" />
       </div>
 
-      <p></p>
+      <p />
     </section>
   );
-};
+}
 
 export default Register;
