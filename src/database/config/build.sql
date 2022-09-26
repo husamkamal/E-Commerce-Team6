@@ -17,8 +17,8 @@ BEGIN;
         Name VARCHAR(50) NOT NULL,
         Description TEXT,
         Image TEXT NOT NULL,
+        Price INTEGER NOT NULL ,
         CategoryID INTEGER NOT NULL,
-        price INTEGER NOT NULL ,
         FOREIGN KEY (CategoryID) REFERENCES categories(ID) 
     );
 
