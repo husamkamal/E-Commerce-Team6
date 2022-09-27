@@ -9,7 +9,7 @@ function Card(props) {
 
   const { info } = props;
   return (
-    <Link to="/product:productId">
+    <Link to={`/product/${info.id}`}>
       <li
         onMouseOver={() => setVisible(true)}
         onFocus={() => setVisible(true)}
