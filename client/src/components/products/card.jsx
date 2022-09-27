@@ -37,25 +37,14 @@ function Card(props) {
         </div>
         {/* <img className="product-image" src={info.image} alt="info.name" /> */}
 
-<<<<<<< HEAD
-      <button
-        style={{ display: visible ? 'block' : 'none' }}
-        className="add-btn"
-      >
-        {info.name}
-      </button>
-    </li>
-=======
         <button
           style={{ display: visible ? 'block' : 'none' }}
           className="add-btn"
         >
-          {' '}
-          ADD TO BAG
+          {info.name}
         </button>
       </li>
     </Link>
->>>>>>> 824fe0c8f718949856283ca3b8f0c0136e26ce59
   );
 }
 
