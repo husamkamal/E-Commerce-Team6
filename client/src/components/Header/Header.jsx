@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 function Header() {
@@ -38,9 +39,9 @@ function Header() {
             </a>
           </li>
           <li>
-            <a href="/cart" className="nav-link">
+            <Link to="/cart" className="nav-link">
               bag(2)
-            </a>
+            </Link>
           </li>
         </div>
       </nav>

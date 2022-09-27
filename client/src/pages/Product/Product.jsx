@@ -1,14 +1,35 @@
-import { useState } from 'react';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import './Product.css';
 
 export default function Product() {
   const [quantity, setQuantity] = useState(1);
+  // const [data, setData] = useState({});
+  const { productId } = useParams();
   const handlerAmount = (type) => {
     // eslint-disable-next-line no-unused-expressions
     type === 'dec'
       ? setQuantity((prevState) => prevState - 1)
       : setQuantity((prevState) => prevState + 1);
   };
+  useEffect(() => {
+    const controller = new AbortController();
+    const getProductData = async () => {
+      try {
+        const res = await axios.get(`/api/v1/product/${productId}`, {
+          signal: controller.signal,
+        });
+        console.log(res, 1);
+      } catch (error) {
+        console.log(error, 1);
+      }
+    };
+    getProductData();
+    return () => {
+      controller.abort();
+    };
+  });
   return (
     <div>
       <div className="wrapper">
