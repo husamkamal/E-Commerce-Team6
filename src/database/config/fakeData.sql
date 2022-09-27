@@ -62,4 +62,4 @@ VALUES (
   );
 INSERT INTO users (Name, Email, HshedPassword) VALUES ("test", "test@gmail.com", "123456789");
 
-COMMIT;
+COMMIT; 
