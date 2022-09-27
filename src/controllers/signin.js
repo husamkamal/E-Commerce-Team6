@@ -1,29 +1,25 @@
 const bcryptjs = require('bcryptjs');
 const { signingQuery } = require('../database/queries');
-const signinValidation = require('../utils/signin');
+const signingValidation = require('../utils/signin');
 
-const signinController = (req, res) => {
+const signingController = (req, res) => {
   const { body } = req;
   const { name, email, password } = req.body;
-  signinValidation(body)
+  signingValidation(body)
     .then((data) => {
       if (!data.details) {
-        bcryptjs.hash(password, 10, (err, hash) => {
-          if (err) {
-            res.status(500).json(err);
-          } else {
-            signingQuery({ name, email, password: hash }).then(() =>
-              res.status(201).json('sign in successfully')
-            );
-          }
-        });
-      } else {
-        throw data.details[0].message;
+        return bcryptjs.hash(password, 10);
       }
+      throw data.details[0].message;
     })
+    .then((result) => signingQuery({ name, email, password: result }))
+    .then(() => res.status(201).json('signing successfully '))
     .catch((err) => {
+      if (err.detail) {
+        res.status(400).json(err.detail);
+      }
       res.status(403).json(err);
     });
 };
 
-module.exports = signinController;
+module.exports = signingController;
