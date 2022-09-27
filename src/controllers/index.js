@@ -1,3 +1,4 @@
 const signinController = require('./signin');
+const { getProductsNames } = require('./products');
 
-module.exports = { signinController };
+module.exports = { signinController, getProductsNames };
