@@ -1,11 +1,8 @@
-import Header from '../Header/Header';
 import './Hero.css';
-import '../Header/Header.css';
 
 function Hero() {
   return (
     <section className="hero">
-      <Header />
       <div className="container">
         <div className="hero-content">
           <h1 className="hero-title">
