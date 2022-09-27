@@ -5,7 +5,7 @@ const { NODE_ENV, DATABASE_URL, PORT } = process.env;
 const connectionString = DATABASE_URL;
 let ssl = false;
 
-switch ('development') {
+switch (NODE_ENV) {
   case 'production':
     ssl = {
       rejectUnauthorized: false,

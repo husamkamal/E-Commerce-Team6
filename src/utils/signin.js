@@ -1,6 +1,6 @@
 const Joi = require('joi');
 
-const signinValidation = async (body) => {
+const signingValidation = async (body) => {
   const schema = Joi.object({
     name: Joi.string().alphanum().min(3).max(30).required(),
     email: Joi.string()
@@ -22,4 +22,4 @@ const signinValidation = async (body) => {
   }
 };
 
-module.exports = signinValidation;
+module.exports = signingValidation;
