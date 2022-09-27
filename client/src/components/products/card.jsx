@@ -1,6 +1,7 @@
 /* eslint-disable react/button-has-type */
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import './products.css';
 import { Link } from 'react-router-dom';
 
 function Card(props) {
@@ -40,8 +41,7 @@ function Card(props) {
           style={{ display: visible ? 'block' : 'none' }}
           className="add-btn"
         >
-          {' '}
-          ADD TO BAG
+          {info.name}
         </button>
       </li>
     </Link>
