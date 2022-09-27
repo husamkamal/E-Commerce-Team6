@@ -38,7 +38,7 @@ function Header() {
             </a>
           </li>
           <li>
-            <a href="/" className="nav-link">
+            <a href="/cart" className="nav-link">
               bag(2)
             </a>
           </li>
