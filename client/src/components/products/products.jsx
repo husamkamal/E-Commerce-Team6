@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import Card from './card';
-import './products.css';
 
 function Products(props) {
   const { data } = props;
