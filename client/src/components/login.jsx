@@ -1,22 +1,59 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import * as yup from 'yup';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Btn from './btn';
 import '../styles/auth.css';
 
 function Login() {
-  // const regxValidation = {
-  //   email: '^w+@[a-zA-Z_]+?.[a-zA-Z]{2,3}$',
-  //   pasword: /[^a-zA-Z0-9 ]/,
-  // };
   const [inputs, setInput] = useState({
     email: '',
     password: '',
   });
+  const [error, setErr] = useState('');
+  const loginValidationSchema = yup
+    .object()
+    .shape({
+      email: yup
+        .string()
+        .email('this field must be an email')
+        .required('The field is required')
+        .trim(),
+      password: yup
+        .string()
+        .min(8, 'must be more than 8 characters')
+        .required('The field is required'),
+    })
+    .required();
+
   const inputHandler = (e) => {
     const { name } = e.target;
     const { value } = e.target;
     setInput({ ...inputs, [name]: value });
   };
-
+  const onclick = () => {
+    loginValidationSchema
+      .validate(inputs)
+      .then(() =>
+        fetch('/api/v1/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(inputs),
+        })
+      )
+      .then((data) => data.json())
+      .then((result) => toast(result))
+      .catch((err) => {
+        setErr(err.errors[0]);
+      });
+  };
+  useEffect(() => {
+    if (error) {
+      toast(error);
+    }
+  }, [error]);
   return (
     <section className="container">
       <div className="authForm">
@@ -43,7 +80,7 @@ function Login() {
           />
           &nbsp; Remember Me
         </label>
-        <Btn click={null} Name="LOGIN" />
+        <Btn click={() => onclick()} Name="LOGIN" />
       </div>
 
       <p />
