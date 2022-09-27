@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&display=swap');
+
+
+.products-container {
+  display:flex ;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  margin : 3rem ;
+  margin-top: 1rem;
+}
+
+.products-list {
+  width: 90%;
+  margin: 0 auto;
+  min-height: 800px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2%;
+}
+
+.product {
+  width: 240px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  border-radius: 5px;
+  box-shadow: 9px 13px 25px -2px #0000006b;
+}
+
+
+.product:hover{
+
+}
+
+.product-content{
+  position: absolute;
+  top: 0;
+  left : 0;
+  right:0;
+  bottom: 0;
+  transition: all 0.2s;
+  border-radius: 5px;
+}
+
+
+.price-mark {
+  position: absolute;
+  width: 5.6rem;
+  padding: 0.6rem 0px 0.6rem 0.7rem;
+  background-color: #D1094B;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 0 100%, 0% 50%, 0 0);
+}
+
+.price-mark .price {
+  padding-left: 0.5rem;
+  color: #FFF;
+  border-left: 3.4px solid #FFF;
+}
+
+.add-btn {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  color: #FFF;
+  font-size: 1rem;
+  font-weight: 700;
+  left: 60px;
+  bottom: 50px;
+  cursor: pointer;
+}
