@@ -1,6 +1,7 @@
 /* eslint-disable react/button-has-type */
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import './products.css';
 
 function Card(props) {
   const [visible, setVisible] = useState(false);
@@ -38,8 +39,7 @@ function Card(props) {
         style={{ display: visible ? 'block' : 'none' }}
         className="add-btn"
       >
-        {' '}
-        ADD TO BAG
+        {info.name}
       </button>
     </li>
   );

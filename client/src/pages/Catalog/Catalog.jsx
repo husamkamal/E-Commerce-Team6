@@ -11,8 +11,7 @@ function Catalog({ data }) {
   const [names, setNames] = useState([]);
   useEffect(() => {
     getProductsNames().then((res) => {
-      setNames(res);
-      console.log(res);
+      setNames(res.names);
     });
   }, []);
   return (

@@ -6,7 +6,6 @@ import './search.css';
 function Search({ names }) {
   const [input, setInput] = useState('');
   const [matches, setMatches] = useState([]);
-
   const handleChoose = (e) => {
     setInput(e.target.textContent);
     setMatches([]);
@@ -14,19 +13,25 @@ function Search({ names }) {
 
   const handleSearch = (e) => {
     setInput(e.target.value);
-    if (input !== '') {
-      setMatches(
-        names
-          .filter((match) => match.startsWith(input.toLowerCase()))
-          .map((match) => (
-            <li key={match} onClick={handleChoose} role="presentation">
-              {match}
-            </li>
-          ))
-      );
-    } else {
+    if (!input.trim()) {
       setMatches([]);
     }
+
+    setMatches(
+      names
+        .filter((match) =>
+          match.name.toLowerCase().trim().includes(input.toLowerCase().trim())
+        )
+        .map((match) => (
+          <li
+            key={`${match.name}${match.id}`}
+            onClick={handleChoose}
+            role="presentation"
+          >
+            {match.name}
+          </li>
+        ))
+    );
   };
   return (
     <section className="search-container">
@@ -50,7 +55,6 @@ function Search({ names }) {
 }
 
 Search.propTypes = {
-  names: PropTypes.arrayOf(PropTypes.string).isRequired,
+  names: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
 };
-
 export default Search;
