@@ -2,7 +2,7 @@ const connection = require('../../config/connection');
 
 const getProductsNamesQuery = () => {
   const sql = {
-    text: 'SELECT Name FROM products',
+    text: 'SELECT ID, Name FROM products',
     values: [],
   };
   return connection.query(sql).then((res) => res.rows);

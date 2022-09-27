@@ -15,10 +15,7 @@ app.use(compression());
 
 app.use(auth);
 // app.use(express.static(join(__dirname, '../', 'client', 'build')));
-app.use('/', (req, res) => {
-  res.json({ msg: 'hello' });
-});
 
-app.use(router);
+app.use('/api/v1', router);
 
 module.exports = app;
