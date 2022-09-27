@@ -1,6 +1,6 @@
-import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Catalog from './pages/Catalog/Catalog';
+import Hero from './components/Hero/Hero';
 
 const data = [
   {
@@ -42,7 +42,8 @@ const data = [
 export default function App() {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
+      <Hero />
       <Catalog data={data} />
       <Footer />
     </div>
