@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import CategoryFilter from '../CategoryFilter/CategoryFilter';
-
+import FIlterProduct from '../FIlterProduct/FIlterProduct';
 // import FIlterProduct from '../FIlterProduct/FIlterProduct';
 import './Filter.css';
 

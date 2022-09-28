@@ -8,6 +8,8 @@ export default function CategoryFilter({ filterProduct, setFilterProduct }) {
       return {
         ...prevState,
         category: prevState.category.map((c) => {
+
+
           if (c.id === selectedCategory.id) {
             return { ...c, selected: !c.selected };
           }
