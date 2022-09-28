@@ -4,6 +4,8 @@ const {
   signingController,
   loginController,
   getFIlterProduct,
+  getProductById,
+  categoryController,
 } = require('../controllers');
 const cartRouter = require('./cart');
 
@@ -13,6 +15,8 @@ router.get('/products', getFIlterProduct);
 
 router.post('/register', signingController);
 router.post('/login', loginController);
+router.get('/product/:productId', getProductById);
+router.get('/category', categoryController);
 
 router.use('/cart', cartRouter);
 

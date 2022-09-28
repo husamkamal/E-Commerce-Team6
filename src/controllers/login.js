@@ -25,7 +25,7 @@ const loginController = (req, res) => {
       // eslint-disable-next-line no-throw-literal
       throw { msgErr: 'password not match' };
     })
-    .then((token) => res.cookie('token', token).json(token))
+    .then((token) => res.cookie('token', token).json('login successfully'))
     .catch((err) => {
       if (err.msgErr) {
         res.status(401).json(err.msgErr);

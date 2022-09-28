@@ -1,6 +1,12 @@
+const categoryController = require('./category');
 const loginController = require('./login');
 const signingController = require('./signin');
-const { getProductsNames, getFIlterProduct } = require('./products');
+
+const {
+  getProductsNames,
+  getFIlterProduct,
+  getProductById,
+} = require('./products');
 
 const {
   getAllOrders,
@@ -15,6 +21,8 @@ module.exports = {
   loginController,
   getProductsNames,
   getFIlterProduct,
+  getProductById,
+  categoryController,
   getAllOrders,
   insertOrder,
   updateOrder,
