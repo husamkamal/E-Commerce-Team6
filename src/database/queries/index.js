@@ -1,9 +1,13 @@
 const loginQueries = require('./login');
 const signingQuery = require('./signin');
-const { getProductsNamesQuery } = require('./productsQueries');
+const {
+  getProductsNamesQuery,
+  getProductsQuery,
+} = require('./productsQueries');
 
 module.exports = {
   signingQuery,
-  getProductsNamesQuery,
   loginQueries,
+  getProductsNamesQuery,
+  getProductsQuery,
 };

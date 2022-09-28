@@ -1,9 +1,14 @@
 const router = require('express').Router();
 const { getProductsNames } = require('../controllers');
+const {
+  signingController,
+  loginController,
+  getFIlterProduct,
+} = require('../controllers');
 
 router.get('/names', getProductsNames);
 
-const { signingController, loginController } = require('../controllers');
+router.get('/products', getFIlterProduct);
 
 router.post('/register', signingController);
 router.post('/login', loginController);

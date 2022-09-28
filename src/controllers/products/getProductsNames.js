@@ -13,7 +13,7 @@ const getProductsNames = (req, res, next) => {
       }
     })
     .catch((err) => {
-      next(createError(500, `server error in getting user ${err}`));
+      next(createError(500, `server error in getting names ${err}`));
     });
 };
 

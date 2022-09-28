@@ -29,7 +29,7 @@ const router = createBrowserRouter([
   {
     path: '/product:productId',
     element: <Product />,
-  }
+  },
 ]);
 
 export default router;
