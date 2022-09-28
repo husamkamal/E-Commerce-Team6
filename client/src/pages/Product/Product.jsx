@@ -17,9 +17,8 @@ export default function Product() {
   useEffect(() => {
     const controller = new AbortController();
     const getProductData = async () => {
-      const id = productId.slice(2);
       try {
-        const res = await axios.get(`/api/v1/product/${id}`, {
+        const res = await axios.get(`/api/v1/product/${productId}`, {
           signal: controller.signal,
         });
         setData(res.data);
