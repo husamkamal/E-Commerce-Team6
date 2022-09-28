@@ -1,24 +1,51 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Btn from './btn';
+import singingValidationSchema from '../utils/signing';
 import '../styles/auth.css';
 
 function Register() {
-  // const regxValidation = {
-  //   email: '^w+@[a-zA-Z_]+?.[a-zA-Z]{2,3}$',
-  //   pasword: /[^a-zA-Z0-9 ]/,
-  // };
   const [inputs, setInput] = useState({
     name: '',
     email: '',
     password: '',
     confirmPassword: '',
   });
+  const [error, setErr] = useState('');
+
   const inputHandler = (e) => {
     const { name } = e.target;
     const { value } = e.target;
     setInput({ ...inputs, [name]: value });
   };
-
+  const { email, name, password } = inputs;
+  const onclick = () => {
+    setErr('');
+    singingValidationSchema
+      .validate(inputs)
+      .then(() =>
+        fetch('/api/v1/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, name, password }),
+        })
+      )
+      .then((data) => data.json())
+      .then((result) => {
+        toast(result);
+      })
+      .catch((err) => {
+        setErr(err.errors[0]);
+      });
+  };
+  useEffect(() => {
+    if (error) {
+      toast(error);
+    }
+  }, [error]);
   return (
     <section className="container">
       <div className="authForm">
@@ -28,14 +55,14 @@ function Register() {
           name="email"
           value={inputs.email}
           onInput={inputHandler}
-          placeholder="Name"
+          placeholder="Email Address"
         />
         <input
           type="text"
           name="name"
           value={inputs.name}
           onInput={inputHandler}
-          placeholder="Email Address"
+          placeholder="Name"
         />
         <input
           type="password"
@@ -52,7 +79,7 @@ function Register() {
           placeholder="Confirm Password"
         />
 
-        <Btn click={null} Name="REGISTER" />
+        <Btn click={onclick} Name="REGISTER" />
       </div>
 
       <p />
