@@ -1,45 +1,57 @@
-import { Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import './Header.css';
 
 function Header() {
+  const colorLink = {
+    color: useLocation().pathname === '/' ? '#fff' : '#000',
+  };
+
+  const navClass = () => {
+    if (useLocation().pathname === '/') return 'white';
+    return 'black';
+  };
+
+  const positionHeader = {
+    position: useLocation().pathname === '/' ? 'absolute' : null,
+  };
   return (
-    <header>
+    <header style={positionHeader}>
       <nav className="container">
         <div className="navbar navbar-shoping">
           <li>
-            <a href="/" className="nav-link">
+            <Link to="/" className={navClass()} style={colorLink}>
               new arrivals
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/" className="nav-link">
+            <Link to="/" className={navClass()} style={colorLink}>
               shop
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/" className="nav-link">
+            <Link to="/" className={navClass()} style={colorLink}>
               collections
-            </a>
+            </Link>
           </li>
         </div>
 
-        <a href="/" className="logo">
+        <Link to="/" className="logo" style={colorLink}>
           <span>S</span>hoOp
-        </a>
+        </Link>
 
         <div className="navbar navbar-user">
           <li>
-            <a href="/" className="nav-link">
+            <Link to="/" className={navClass()} style={colorLink}>
               search
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/" className="nav-link">
+            <Link to="/login" className={navClass()} style={colorLink}>
               sign in
-            </a>
+            </Link>
           </li>
           <li>
-            <Link to="/cart" className="nav-link">
+            <Link to="/cart" className={navClass()} style={colorLink}>
               bag(2)
             </Link>
           </li>

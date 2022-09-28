@@ -1,22 +1,26 @@
-import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 import Card from './card';
 
-function Products(props) {
-  const { data } = props;
+function Products() {
+  useEffect(() => {
+    fetch('/api/v1/name')
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log('hello', err));
+  }, []);
+
+  const data = [];
   return (
-    <>
-      <ul className="products-list">
-        {data.map((ele) => (
-          <Card key={ele.id} info={ele} />
-        ))}
-      </ul>
-      <div className="page-index">test</div>
-    </>
+    <ul className="products-list">
+      {data.map((el) => (
+        <Card key={el.id} info={el} />
+      ))}
+    </ul>
   );
 }
 
-Products.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
-};
+// Products.propTypes = {
+//   data: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
+// };
 
 export default Products;
