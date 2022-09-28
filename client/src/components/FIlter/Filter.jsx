@@ -2,11 +2,18 @@ import CategoryFilter from '../CategoryFilter/CategoryFilter';
 import FIlterProduct from '../FIlterProduct/FIlterProduct';
 import './Filter.css';
 
-function Filter() {
+// eslint-disable-next-line react/prop-types
+function Filter({ filterProduct, setFilterProduct }) {
   return (
     <div className="filter-sidebar">
-      <CategoryFilter />
-      <FIlterProduct />
+      <CategoryFilter
+        filterProduct={filterProduct}
+        setFilterProduct={setFilterProduct}
+      />
+      <FIlterProduct
+        filterProduct={filterProduct}
+        setFilterProduct={setFilterProduct}
+      />
     </div>
   );
 }
