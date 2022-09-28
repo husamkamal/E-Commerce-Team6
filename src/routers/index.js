@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { getProductsNames } = require('../controllers');
 
-const { signingController, loginController } = require('../controllers');
 const {
   signingController,
   loginController,
