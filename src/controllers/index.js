@@ -7,6 +7,7 @@ const {
   insertOrder,
   updateOrder,
   deleteOrder,
+  deleteOrders,
 } = require('./Cart');
 
 module.exports = {
@@ -18,4 +19,5 @@ module.exports = {
   insertOrder,
   updateOrder,
   deleteOrder,
+  deleteOrders,
 };
