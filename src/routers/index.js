@@ -7,7 +7,7 @@ const {
 } = require('../controllers');
 const cartRouter = require('./cart');
 
-router.get('/names', getProductsNames);
+router.get('/name', getProductsNames);
 
 router.get('/products', getFIlterProduct);
 

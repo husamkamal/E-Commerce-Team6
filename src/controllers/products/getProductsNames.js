@@ -4,6 +4,7 @@ const createError = require('http-errors');
 const { getProductsNamesQuery } = require('../../database/queries');
 
 const getProductsNames = (req, res, next) => {
+  console.log('in get controllert');
   getProductsNamesQuery()
     .then((rows) => {
       if (rows.length) {
