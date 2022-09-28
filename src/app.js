@@ -6,13 +6,16 @@ const { auth } = require('./middlewares/verifyToken');
 
 const app = express();
 require('dotenv').config();
+const morgan = require('morgan');
 const router = require('./routers');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(compression());
-
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+}
 app.use(auth);
 // app.use(express.static(join(__dirname, '../', 'client', 'build')));
 app.get('/', (req, res) => res.json({ message: 'HELLO SERVER!' }));

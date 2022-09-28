@@ -9,7 +9,7 @@ const {
 } = require('../controllers');
 const cartRouter = require('./cart');
 
-router.get('/name', getProductsNames);
+router.get('/names', getProductsNames);
 
 router.get('/products', getFIlterProduct);
 

@@ -1,10 +1,8 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import CategoryFilter from '../CategoryFilter/CategoryFilter';
 import FIlterProduct from '../FIlterProduct/FIlterProduct';
-// import FIlterProduct from '../FIlterProduct/FIlterProduct';
 import './Filter.css';
 
-// eslint-disable-next-line react/prop-types
 function Filter({ filterProduct, setFilterProduct }) {
   return (
     <div className="filter-sidebar">
@@ -20,7 +18,14 @@ function Filter({ filterProduct, setFilterProduct }) {
   );
 }
 
-// Filter.defaultProps = {
-//   filters: { category: 'all', search: '' },
-// };
+Filter.propTypes = {
+  filterProduct: PropTypes.shape({
+    category: PropTypes.arrayOf(PropTypes.objectOf),
+    price: PropTypes.number,
+    search: PropTypes.string,
+    page: PropTypes.number,
+  }).isRequired,
+  setFilterProduct: PropTypes.func.isRequired,
+};
+
 export default Filter;
