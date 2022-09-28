@@ -9,12 +9,12 @@ a {
   width: 80%;
 }
 header {
-  /* position: fixed; */
   display: inline-block;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 100;
+  margin-bottom: 20px;
 }
 nav {
   display: flex;
@@ -29,7 +29,6 @@ li {
   letter-spacing: 1px;
   font-size: 32px;
   font-family: 'Poppins', sans-serif;
-  color: #fff;
 }
 span {
   color: #d3404c;
@@ -40,10 +39,9 @@ span {
   column-gap: 24px;
   padding: 24px 0;
 }
-.nav-link {
+/* .nav-link {
   position: relative;
   font-size: 17px;
-  color: #fff;
   text-transform: uppercase;
   font-family: 'Poppins', sans-serif;
   transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -51,26 +49,57 @@ span {
   -moz-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
   -ms-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
   -o-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-.nav-link::before {
+} */
+
+/* 
+.black::before {
   content: '';
   position: absolute;
   bottom: -2px;
   left: 0;
   width: 0;
   height: 2px;
-  background: #fff;
+  transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  -moz-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  -ms-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  -o-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  background-color: rgb(0, 0, 0);
+}
+.white::before {
+  background-color: rgb(255, 255, 255);
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
   transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
   -webkit-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
   -moz-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
   -ms-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
   -o-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-.nav-link:hover.nav-link::before {
+.black:hover.black::before,
+.white:hover.white::before {
   width: 100%;
   transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
   -webkit-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
   -moz-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
   -ms-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
   -o-transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+} */
+.black,
+.white {
+  position: relative;
+  font-size: 17px;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+}
+.black:hover {
+  border-bottom: 2px solid black;
+}
+
+.white:hover {
+  border-bottom: 2px solid white;
 }

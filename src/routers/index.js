@@ -5,6 +5,7 @@ const {
   loginController,
   getFIlterProduct,
 } = require('../controllers');
+const cartRouter = require('./cart');
 
 router.get('/names', getProductsNames);
 
@@ -12,6 +13,8 @@ router.get('/products', getFIlterProduct);
 
 router.post('/register', signingController);
 router.post('/login', loginController);
+
+router.use('/cart', cartRouter);
 
 // server error need handling
 // eslint-disable-next-line no-unused-vars
