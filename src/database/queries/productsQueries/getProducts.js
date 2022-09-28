@@ -1,8 +1,8 @@
 const connection = require('../../config/connection');
 
-const getProductsQuery = ({ cate = 'all', search = '', page = 1 }) => {
+const getProductsQuery = (isValid) => {
   const sql = {
-    text: 'SELECT * FROM products when cate == "all" then *   ',
+    text: `SELECT * FROM products `,
     values: [],
   };
   return connection.query(sql).then((res) => res.rows);
