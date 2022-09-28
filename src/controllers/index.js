@@ -6,6 +6,7 @@ const {
   insertOrder,
   updateOrder,
   deleteOrder,
+  deleteOrders,
 } = require('./Cart');
 module.exports = {
   signingController,
@@ -15,4 +16,5 @@ module.exports = {
   insertOrder,
   updateOrder,
   deleteOrder,
+  deleteOrders,
 };
