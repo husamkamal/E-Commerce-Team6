@@ -1,7 +1,5 @@
-import { Link } from 'react-router-dom';
-import './Header.css';
-
 import { useLocation, Link } from 'react-router-dom';
+import './Header.css';
 
 function Header() {
   console.log(useLocation());
@@ -54,9 +52,7 @@ function Header() {
             </Link>
           </li>
           <li>
-
             <Link to="/cart" className={navClass()} style={colorLink}>
-
               bag(2)
             </Link>
           </li>

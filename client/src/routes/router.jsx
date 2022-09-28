@@ -1,10 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
+import Home from '../pages/Home/Home';
 import Login from '../components/login';
 import Register from '../components/register';
 import Order from '../pages/orders/orders';
 import Product from '../pages/Product/Product';
-import Home from '../pages/Home/Home';
 
 const router = createBrowserRouter([
   {
