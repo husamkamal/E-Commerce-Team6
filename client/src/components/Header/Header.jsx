@@ -2,7 +2,6 @@ import { useLocation, Link } from 'react-router-dom';
 import './Header.css';
 
 function Header() {
-  console.log(useLocation());
   const colorLink = {
     color: useLocation().pathname === '/' ? '#fff' : '#000',
   };
