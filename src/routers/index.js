@@ -4,17 +4,15 @@ const { getProductsNames } = require('../controllers');
 const {
   signingController,
   loginController,
+  getFIlterProduct,
   getProductById,
   categoryController,
 } = require('../controllers');
+const cartRouter = require('./cart');
 
 router.get('/names', getProductsNames);
 
-const cartRouter = require('./cart');
-
-
-
-
+router.get('/products', getFIlterProduct);
 
 router.post('/register', signingController);
 router.post('/login', loginController);

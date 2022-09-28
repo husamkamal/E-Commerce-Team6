@@ -2,7 +2,11 @@ const categoryController = require('./category');
 const loginController = require('./login');
 const signingController = require('./signin');
 
-const { getProductsNames, getProductById } = require('./products');
+const {
+  getProductsNames,
+  getFIlterProduct,
+  getProductById,
+} = require('./products');
 
 const {
   getAllOrders,
@@ -16,6 +20,7 @@ module.exports = {
   signingController,
   loginController,
   getProductsNames,
+  getFIlterProduct,
   getProductById,
   categoryController,
   getAllOrders,
@@ -23,5 +28,4 @@ module.exports = {
   updateOrder,
   deleteOrder,
   deleteOrders,
-
 };

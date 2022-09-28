@@ -1,6 +1,10 @@
 const loginQueries = require('./login');
 const signingQuery = require('./signin');
-const { getProductsNamesQuery } = require('./productsQueries');
+
+const {
+  getProductsNamesQuery,
+  getProductsQuery,
+} = require('./productsQueries');
 
 const productByIdQuery = require('./getProductById');
 const categoryQuery = require('./category');
@@ -13,11 +17,11 @@ const {
   deleteOrders,
 } = require('./Cart');
 
-
 module.exports = {
   signingQuery,
-  getProductsNamesQuery,
   loginQueries,
+  getProductsNamesQuery,
+  getProductsQuery,
   productByIdQuery,
   categoryQuery,
   getAllOrders,
@@ -25,5 +29,4 @@ module.exports = {
   updateOrder,
   deleteOrder,
   deleteOrders,
-
 };
