@@ -1,5 +1,12 @@
+const categoryController = require('./category');
 const loginController = require('./login');
 const signingController = require('./signin');
-const { getProductsNames } = require('./products');
+const { getProductsNames, getProductById } = require('./products');
 
-module.exports = { signingController, loginController, getProductsNames };
+module.exports = {
+  signingController,
+  loginController,
+  getProductsNames,
+  getProductById,
+  categoryController,
+};
