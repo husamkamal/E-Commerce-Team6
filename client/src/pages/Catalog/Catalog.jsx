@@ -25,6 +25,7 @@ function Catalog() {
     const fetchProduct = async () => {
       try {
         const res = await getProducts(filterProduct, controller);
+        console.log(res);
         setData(res);
       } catch (error) {
         console.log(error);
@@ -54,7 +55,6 @@ function Catalog() {
       setNames(res.names);
     });
   }, []);
-  console.log(data);
   if (!data.length) return <h1>loading...</h1>;
   return (
     <section className="products-catalog">
