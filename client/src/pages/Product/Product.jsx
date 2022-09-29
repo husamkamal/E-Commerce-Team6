@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
 import Btn from '../../components/btn';
 import './Product.css';
 
@@ -9,6 +10,7 @@ export default function Product() {
   const [data, setData] = useState({});
   const [error, setError] = useState({});
   const { productId } = useParams();
+  const navigation = useNavigate();
   const handlerAmount = (type) => {
     // eslint-disable-next-line no-unused-expressions
     type === 'dec'
@@ -32,6 +34,31 @@ export default function Product() {
       controller.abort();
     };
   }, []);
+
+  const addtoCArt = () => {
+    console.log('Real');
+    axios({
+      method: 'POST',
+      url: '/api/v1/cart/new',
+      data: {
+        productID: productId,
+        quantity,
+      },
+    }).then((response) => {
+      console.log(response);
+      if (response.data.Status) {
+        swal('Added To Cart', {
+          icon: 'success',
+        });
+        navigation('/catalog');
+      } else {
+        swal('un expected error', {
+          icon: 'error',
+        });
+      }
+    });
+  };
+
   if (error.length) return <h1>interval server error</h1>;
   if (!data.id) return <h1>loading...</h1>;
   return (
@@ -82,7 +109,7 @@ export default function Product() {
               +
             </button>
           </div>
-          <Btn Name="Add To Cart" />
+          <Btn Name="Add To Cart" click={() => addtoCArt()} />
         </div>
       </div>
     </div>
