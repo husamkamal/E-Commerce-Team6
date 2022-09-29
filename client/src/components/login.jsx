@@ -12,6 +12,7 @@ function Login() {
     password: '',
   });
   const [error, setErr] = useState('');
+  const [userData, setUserData] = useState('');
   const navigation = useNavigate();
   const loginValidationSchema = yup
     .object()
@@ -33,6 +34,7 @@ function Login() {
     const { value } = e.target;
     setInput({ ...inputs, [name]: value });
   };
+
   const onclick = () => {
     setErr('');
     loginValidationSchema
@@ -48,13 +50,27 @@ function Login() {
       )
       .then((data) => data.json())
       .then((result) => {
-        toast(result);
-        navigation('/');
+        if (result.msgLogin === 'login successfully') {
+          toast(result);
+          setUserData(result.data.name);
+        } else {
+          // eslint-disable-next-line no-throw-literal
+          throw { errorsMsg: result };
+        }
       })
       .catch((err) => {
-        setErr(err.errors[0]);
+        if (err.errorsMsg) {
+          setErr(err.errorsMsg);
+        } else {
+          setErr(err.errors[0]);
+        }
       });
   };
+  useEffect(() => {
+    if (userData) {
+      navigation('/', { state: userData });
+    }
+  }, [userData]);
   useEffect(() => {
     if (error) {
       toast(error);
