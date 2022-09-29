@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Btn from '../../components/btn';
 import './Product.css';
 
 export default function Product() {
@@ -51,14 +52,26 @@ export default function Product() {
             ${data.price}
           </span>
           <div className="amount-container">
-            <button
-              style={{ padding: '0rem .5rem' }}
-              type="button"
-              className="remove"
-              onClick={() => handlerAmount('dec')}
-            >
-              -
-            </button>
+            {quantity > 1 ? (
+              <button
+                style={{ padding: '0rem .5rem' }}
+                type="button"
+                className="remove"
+                onClick={() => handlerAmount('dec')}
+              >
+                -
+              </button>
+            ) : (
+              <button
+                style={{ padding: '0rem .5rem' }}
+                type="button"
+                className="remove"
+                onClick={() => handlerAmount('dec')}
+                disabled
+              >
+                -
+              </button>
+            )}
             <span className="amount">{quantity}</span>
             <button
               style={{ padding: '0rem .5rem' }}
@@ -69,6 +82,7 @@ export default function Product() {
               +
             </button>
           </div>
+          <Btn Name="Add To Cart" />
         </div>
       </div>
     </div>
