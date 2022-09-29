@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "server": "cross-env NODE_ENV=development nodemon src/index.js",
-    "start": "cross-env NODE_ENV=production node src/index.js | (cd client && npm start)",
+    "start": "cross-env NODE_ENV=production node src/index.js",
     "dev": "cross-env NODE_ENV=development nodemon src/index.js | (cd client && npm start)",
     "dev:client": "cd client && npm start",
     "test": "cross-env NODE_ENV=testing jest",
-    "start:dev": "cross-env NODE_ENV=development nodemon src/index.js "
+    "start:dev": "cross-env NODE_ENV=development nodemon src/index.js ",
+    "heroku-postbuild": "cd client && npm i && npm run build"
   },
   "keywords": [],
   "author": "",
