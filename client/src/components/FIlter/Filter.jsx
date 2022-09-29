@@ -23,7 +23,6 @@ Filter.propTypes = {
     category: PropTypes.arrayOf(PropTypes.objectOf),
     price: PropTypes.number,
     search: PropTypes.string,
-    page: PropTypes.number,
   }).isRequired,
   setFilterProduct: PropTypes.func.isRequired,
 };

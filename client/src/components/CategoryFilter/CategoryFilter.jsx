@@ -45,7 +45,7 @@ CategoryFilter.propTypes = {
   filterProduct: PropTypes.shape({
     category: PropTypes.arrayOf(PropTypes.objectOf),
     price: PropTypes.number,
-    page: PropTypes.number,
+    search: PropTypes.string,
   }).isRequired,
   setFilterProduct: PropTypes.func.isRequired,
 };
