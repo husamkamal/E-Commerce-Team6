@@ -19,10 +19,11 @@ const getFIlterProduct = (req, res, next) => {
     // }
     // getProductsQuery(isValid)
     .then((rows) => {
+      console.log(rows);
       if (rows.length) {
         res.json(rows);
       } else {
-        res.status(300).json({ msg: 'There is no products' });
+        res.status(200).json({ msg: 'There is no products' });
       }
     })
     .catch((err) => {

@@ -14,7 +14,7 @@ function Catalog() {
   const [data, setData] = useState([]);
   const [filterProduct, setFilterProduct] = useState({
     category: [],
-    price: -1,
+    price: undefined,
     search: '',
     page: -1,
   });
@@ -54,17 +54,21 @@ function Catalog() {
       setNames(res.names);
     });
   }, []);
-  if (!data.length) return <h1>loading...</h1>;
+
   return (
     <section className="products-catalog">
       <Filter
         filterProduct={filterProduct}
         setFilterProduct={setFilterProduct}
       />
-      <section className="products-container">
-        <Search names={names} setFilterProduct={setFilterProduct} />
-        <Products data={data} />
-      </section>
+      {!data.length ? (
+        <h1>loading...</h1>
+      ) : (
+        <section className="products-container">
+          <Search names={names} setFilterProduct={setFilterProduct} />
+          <Products data={data} />
+        </section>
+      )}
     </section>
   );
 }
