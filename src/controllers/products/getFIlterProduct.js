@@ -2,10 +2,9 @@ const createError = require('http-errors');
 const { getProductsQuery } = require('../../database/queries/productsQueries');
 
 const getFIlterProduct = (req, res, next) => {
-  const { page = 1, category, search = '' } = req.query;
-  const cate = category?.split('-');
-  console.log(req.query, req.query.page);
-  getProductsQuery({ cate, search, page })
+  const { page = 1, category, search = '', price = -1 } = req.query;
+  const cate = category?.split('-').join(',');
+  getProductsQuery({ cate, search, price, page })
     .then((rows) => {
       if (rows.length) {
         res.json(rows);
