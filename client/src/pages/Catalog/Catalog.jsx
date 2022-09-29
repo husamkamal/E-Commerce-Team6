@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 // import PropTypes from 'prop-types';
@@ -14,9 +15,8 @@ function Catalog() {
   const [data, setData] = useState([]);
   const [filterProduct, setFilterProduct] = useState({
     category: [],
-    price: undefined,
+    price: 100,
     search: '',
-    page: -1,
   });
   const [names, setNames] = useState([]);
 
@@ -61,7 +61,9 @@ function Catalog() {
         filterProduct={filterProduct}
         setFilterProduct={setFilterProduct}
       />
-      {!data.length ? (
+      {data.msg ? (
+        <h1>{data.msg}</h1>
+      ) : !data.length ? (
         <h1>loading...</h1>
       ) : (
         <section className="products-container">
