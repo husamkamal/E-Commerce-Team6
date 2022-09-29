@@ -15,7 +15,6 @@ const getFIlterProduct = (req, res, next) => {
   }
   getProductsQuery(isValid)
     .then((rows) => {
-      console.log(rows);
       if (rows.length) {
         res.json(rows);
       } else {

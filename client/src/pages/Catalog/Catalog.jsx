@@ -25,7 +25,6 @@ function Catalog() {
     const fetchProduct = async () => {
       try {
         const res = await getProducts(filterProduct, controller);
-        console.log(res);
         setData(res);
       } catch (error) {
         console.log(error);

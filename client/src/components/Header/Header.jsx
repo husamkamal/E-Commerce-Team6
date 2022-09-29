@@ -24,7 +24,7 @@ function Header() {
             </Link>
           </li>
           <li>
-            <Link to="/" className={navClass()} style={colorLink}>
+            <Link to="/catalog" className={navClass()} style={colorLink}>
               shop
             </Link>
           </li>
@@ -41,8 +41,8 @@ function Header() {
 
         <div className="navbar navbar-user">
           <li>
-            <Link to="/" className={navClass()} style={colorLink}>
-              search
+            <Link to="/register" className={navClass()} style={colorLink}>
+              register
             </Link>
           </li>
           <li>
