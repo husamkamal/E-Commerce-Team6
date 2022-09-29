@@ -6,12 +6,14 @@ import Register from '../components/register';
 import Order from '../pages/orders/orders';
 import Product from '../pages/Product/Product';
 import Catalog from '../pages/Catalog/Catalog';
+import NotFount from '../pages/Errors/NotFount';
+import ErrorPage from '../pages/Errors/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    // errorElement: <ErrorPage />,
+    errorElement: <ErrorPage />,
     // loader: rootLoader,
     // action: rootAction,
     children: [
@@ -37,6 +39,10 @@ const router = createBrowserRouter([
         element: <Catalog />,
       },
     ],
+  },
+  {
+    path: '*',
+    element: <NotFount />,
   },
 ]);
 
