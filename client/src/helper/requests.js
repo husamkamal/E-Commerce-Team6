@@ -18,24 +18,16 @@ export const getProducts = async (filterProduct, controller) => {
   result.forEach((ele) => {
     ids.push(ele.id);
   });
-
-  const url = `/api/v1/products`;
+  const url = `/api/v1/products?category=${ids.join('-')}&price=${
+    price || 100
+  }&search=${search || ''}`;
 
   try {
     const promise = await axios.get(url, {
       signal: controller.signal,
-      params: {
-        category: ids.length ? ids?.join('-') : undefined,
-        ...(search ? { search } : {}),
-        ...(page !== -1 ? { page } : {}),
-        ...(price !== -1 ? { price } : {}),
-      },
     });
     return promise.data;
   } catch (error) {
     return error;
   }
-  // const promise = axios.get(url, { signal: controller.signal });
-  // const dataPromise = promise.then((response) => response.data);
-  // return dataPromise;
 };

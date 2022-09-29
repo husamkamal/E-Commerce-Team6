@@ -40,7 +40,7 @@ function Search({ names, setFilterProduct }) {
   const handleClickSearch = () => {
     setFilterProduct((prevState) => ({
       ...prevState,
-      search: input,
+      search: input.toLocaleLowerCase(),
     }));
   };
 
