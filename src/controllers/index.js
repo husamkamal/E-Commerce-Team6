@@ -1,7 +1,7 @@
 const categoryController = require('./category');
 const loginController = require('./login');
 const signingController = require('./signin');
-
+const logoutController = require('./logout');
 const {
   getProductsNames,
   getFIlterProduct,
@@ -28,4 +28,5 @@ module.exports = {
   updateOrder,
   deleteOrder,
   deleteOrders,
+  logoutController,
 };

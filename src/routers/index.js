@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getProductsNames } = require('../controllers');
+const { getProductsNames, logoutController } = require('../controllers');
 
 const {
   signingController,
@@ -13,7 +13,7 @@ const cartRouter = require('./cart');
 router.get('/names', getProductsNames);
 
 router.get('/products', getFIlterProduct);
-
+router.get('/logout', logoutController);
 router.post('/register', signingController);
 router.post('/login', loginController);
 router.get('/product/:productId', getProductById);
