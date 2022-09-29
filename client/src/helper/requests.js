@@ -31,3 +31,9 @@ export const getProducts = async (filterProduct, controller) => {
     return error;
   }
 };
+
+export function getMainProduct() {
+  const promise = axios.get('/api/v1/products?category=&price=100&search=');
+  const dataPromise = promise.then((response) => response.data);
+  return dataPromise;
+}
