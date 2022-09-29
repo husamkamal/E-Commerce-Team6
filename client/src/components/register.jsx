@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 import Btn from './btn';
 import singingValidationSchema from '../utils/signing';
 import '../styles/auth.css';
@@ -13,7 +14,7 @@ function Register() {
     confirmPassword: '',
   });
   const [error, setErr] = useState('');
-
+  const navigation = useNavigate();
   const inputHandler = (e) => {
     const { name } = e.target;
     const { value } = e.target;
@@ -36,6 +37,7 @@ function Register() {
       .then((data) => data.json())
       .then((result) => {
         toast(result);
+        navigation('/login');
       })
       .catch((err) => {
         setErr(err.errors[0]);
