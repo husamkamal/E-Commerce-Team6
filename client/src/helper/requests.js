@@ -12,7 +12,7 @@ export function getCategories() {
 }
 
 export const getProducts = async (filterProduct, controller) => {
-  const { category, search, page, price } = filterProduct;
+  const { category, search, price } = filterProduct;
   const result = category.filter((ele) => ele.selected === true);
   const ids = [];
   result.forEach((ele) => {

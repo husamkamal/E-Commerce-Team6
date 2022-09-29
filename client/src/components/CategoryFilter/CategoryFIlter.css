@@ -3,6 +3,8 @@
   flex-direction: column;
   width: 15rem;
   /* height: 80%; */
+  align-items: start;
+  padding-left: 1rem;
 }
 .filter-category-container {
   display: flex;
