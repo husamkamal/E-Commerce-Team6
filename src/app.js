@@ -2,12 +2,11 @@
 const express = require('express');
 const compression = require('compression');
 const cookieParser = require('cookie-parser');
-const { auth } = require('./middlewares/verifyToken');
 const { join } = require('path');
+const { auth } = require('./middlewares/verifyToken');
 
 const app = express();
 require('dotenv').config();
-const morgan = require('morgan');
 const router = require('./routers');
 
 app.use(express.json());
@@ -15,6 +14,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(compression());
 if (process.env.NODE_ENV === 'development') {
+  const morgan = require('morgan');
+
   app.use(morgan('dev'));
 }
 app.use(auth);
