@@ -1,16 +1,10 @@
-import { useState } from 'react';
+import PropTypes from 'prop-types';
 import './cartBag.css';
 import swal from 'sweetalert';
 
-function CartBag() {
-  const [Quantity, setQuantity] = useState(1);
-
-  const increaseQuantity = () => {
-    setQuantity((prevState) => prevState + 1);
-  };
-  const decreaseQuantity = () => {
-    setQuantity((prevState) => (prevState >= 2 ? prevState - 1 : 1));
-  };
+function CartBag({ order, changeQuantity, removeOrder }) {
+  const { OrderID, ProductName, ProductImage, ProductPrice, ProductQuantity } =
+    order;
 
   const confirmRemoving = () => {
     swal({
@@ -21,30 +15,30 @@ function CartBag() {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        swal('Poof! Your imaginary file has been deleted!', {
-          icon: 'success',
-        });
-      } else {
-        swal('Your imaginary file is safe!');
+        removeOrder(OrderID);
       }
     });
   };
 
-  const imageURL =
-    'https://images.unsplash.com/photo-1660452663887-ae41f96d14f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80';
   return (
     <div>
       <div className="card">
-        <img src={imageURL} alt="" className="cardImage" />
+        <img src={ProductImage} alt="" className="cardImage" />
         <div>
-          <h2 className="cardName">NIKE SHOES BOYFRIEND PAIRS</h2>
-          <h3 className="cardPrice">USD $340.00</h3>
+          <h2 className="cardName">{ProductName}</h2>
+          <h3 className="cardPrice">USD ${ProductPrice}</h3>
           <div className="Quantity">
-            <button onClick={increaseQuantity} type="button">
+            <button
+              onClick={() => changeQuantity(OrderID, ProductQuantity + 1)}
+              type="button"
+            >
               +
             </button>
-            <input type="number" value={Quantity} />
-            <button onClick={decreaseQuantity} type="button">
+            <input type="number" value={ProductQuantity} />
+            <button
+              onClick={() => changeQuantity(OrderID, ProductQuantity - 1)}
+              type="button"
+            >
               -
             </button>
           </div>
@@ -58,24 +52,14 @@ function CartBag() {
         </button>
       </div>
       <hr style={{ marginTop: '10px' }} />
-
-      {/* <SweetAlert
-        show={this.state.show}
-        title="Demo with Cancel"
-        text="SweetAlert in React"
-        showCancelButton
-        onConfirm={() => {
-          console.log('confirm'); // eslint-disable-line no-console
-          this.setState({ show: false });
-        }}
-        onCancel={() => {
-          console.log('cancel'); // eslint-disable-line no-console
-          this.setState({ show: false });
-        }}
-        onClose={() => console.log('close')} // eslint-disable-line no-console
-      /> */}
     </div>
   );
 }
 
 export default CartBag;
+
+CartBag.propTypes = {
+  order: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
+  changeQuantity: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
+  removeOrder: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
+};
