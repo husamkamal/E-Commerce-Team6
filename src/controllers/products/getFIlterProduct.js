@@ -5,7 +5,20 @@ const getFIlterProduct = (req, res, next) => {
   const { page = 1, category, search = '', price = -1 } = req.query;
   const cate = category?.split('-').join(',');
   getProductsQuery({ cate, search, price, page })
+    // const filterQueries = req.query;
+    // const isValid = {};
+    // // eslint-disable-next-line no-restricted-syntax
+    // for (const key in filterQueries) {
+    //   if (filterQueries[key] !== undefined) {
+    //     isValid[key] = filterQueries[key];
+    //   }
+    // }
+    // if (isValid.category) {
+    //   isValid.category = isValid.category.split('-');
+    // }
+    // getProductsQuery(isValid)
     .then((rows) => {
+      console.log(rows);
       if (rows.length) {
         res.json(rows);
       } else {

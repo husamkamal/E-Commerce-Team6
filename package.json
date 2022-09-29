@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "cross-env NODE_ENV=development nodemon src/index.js",
-    "start": "cross-env NODE_ENV=production node src/index.js | (cd client && npm start)",
+    "start": "cross-env NODE_ENV=production node src/index.js | (cd client && npm run build)",
     "dev": "cross-env NODE_ENV=development nodemon src/index.js",
     "dev:client": "cd client && npm start",
     "test": "cross-env NODE_ENV=testing jest",
