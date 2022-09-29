@@ -2,8 +2,9 @@ const createError = require('http-errors');
 const { getProductsQuery } = require('../../database/queries/productsQueries');
 
 const getFIlterProduct = (req, res, next) => {
-  const { page = 1, category, search = '', price = -1 } = req.query;
-  const cate = category?.split('-').join(',');
+  const { page = 1, category = '', search = '', price = -1 } = req.query;
+  const cate = category?.split('-').filter(Boolean);
+  console.log(cate);
   getProductsQuery({ cate, search, price, page })
     // const filterQueries = req.query;
     // const isValid = {};
