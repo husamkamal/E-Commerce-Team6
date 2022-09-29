@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,6 +12,7 @@ function Login() {
     password: '',
   });
   const [error, setErr] = useState('');
+  const navigation = useNavigate();
   const loginValidationSchema = yup
     .object()
     .shape({
@@ -32,6 +34,7 @@ function Login() {
     setInput({ ...inputs, [name]: value });
   };
   const onclick = () => {
+    setErr('');
     loginValidationSchema
       .validate(inputs)
       .then(() =>
@@ -44,7 +47,10 @@ function Login() {
         })
       )
       .then((data) => data.json())
-      .then((result) => toast(result))
+      .then((result) => {
+        toast(result);
+        navigation('/');
+      })
       .catch((err) => {
         setErr(err.errors[0]);
       });

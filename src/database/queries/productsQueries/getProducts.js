@@ -1,6 +1,6 @@
 const connection = require('../../config/connection');
 
-const getProductsQuery = (isValid) => {
+const getProductsQuery = () => {
   const sql = {
     text: `SELECT * FROM products `,
     values: [],
